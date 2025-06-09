@@ -1,0 +1,11 @@
+{
+	"system": {
+		"docs": "文档",
+		"api": {
+			"title": "我是接口API"
+		},
+		"settings": {
+			"title": "设置"
+		}
+	}
+}

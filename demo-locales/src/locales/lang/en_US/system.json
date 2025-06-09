@@ -1,0 +1,11 @@
+{
+	"system": {
+		"docs": "Document",
+		"api": {
+			"title": "API"
+		},
+		"settings": {
+			"title": "Settings"
+		}
+	}
+}

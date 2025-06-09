@@ -1,12 +1,17 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { t } from './locales/i18n';
 
 function App() {
   return (
     <div>
-      <h1>国际化</h1>
-      
+      <div>
+        <button onClick={() => {}}>中文</button>
+        <button onCLick={() => {}}>english</button>
+      </div>
+
+      <h1>{t('system.api.title')}</h1>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
