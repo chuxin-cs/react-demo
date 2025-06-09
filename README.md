@@ -13,6 +13,7 @@ git clone https://github.com/chuxin-cs/react-demo.git
 ## ✨ 项目列表
 > 🍉🍉🍉 持续更新中...
 ### 1、基础
+- [demo-hello-world](https://github.com/chuxin-cs/react-demo/tree/master/demo-hello-world) - 打印 hello world 并且罗列React 项目生态
 - [demo-api](https://github.com/chuxin-cs/react-demo/tree/master/demo-api) - react api 学习
 ### 2、项目沉淀
 - [demo-style](https://github.com/chuxin-cs/react-demo/tree/master/demo-style) - React 中样式编写
@@ -20,6 +21,7 @@ git clone https://github.com/chuxin-cs/react-demo.git
 - [demo-locales](https://github.com/chuxin-cs/react-demo/tree/master/demo-locales) - 国际化
 - [demo-auth](https://github.com/chuxin-cs/react-demo/tree/master/demo-auth) - 用户鉴权
 - [demo-components](https://github.com/chuxin-cs/react-demo/tree/master/demo-components) - 业务中常用组件
+- [demo-Immer](https://github.com/chuxin-cs/react-demo/tree/master/demo-Immer) - Immer 解决 useState 深拷贝问题
 - [demo-react-activation](https://github.com/chuxin-cs/react-demo/tree/master/demo-react-activation) - keepalive 组件缓存
 - [demo-motion](https://github.com/chuxin-cs/react-demo/tree/master/demo-motion) - motion 动画
 - [demo-layouts](https://github.com/chuxin-cs/react-demo/tree/master/demo-layouts) - layouts 布局
