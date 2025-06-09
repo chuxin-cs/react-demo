@@ -14,7 +14,7 @@ git clone https://github.com/chuxin-cs/react-demo.git
 > 🍉🍉🍉 持续更新中...
 ### 1、基础
 - [demo-api](https://github.com/chuxin-cs/react-demo/tree/master/demo-api) - react api 学习
-### 2、项目实践
+### 2、项目沉淀
 - [demo-react-router](https://github.com/chuxin-cs/react-demo/tree/master/demo-react-router) - React Router 路由
 - [demo-locales](https://github.com/chuxin-cs/react-demo/tree/master/demo-locales) - 国际化
 - [demo-auth](https://github.com/chuxin-cs/react-demo/tree/master/demo-auth) - 用户鉴权
@@ -23,7 +23,8 @@ git clone https://github.com/chuxin-cs/react-demo.git
 - [demo-layouts](https://github.com/chuxin-cs/react-demo/tree/master/demo-layouts) - layouts 布局
 ### 3、状态管理
 - [demo-zustand](https://github.com/chuxin-cs/react-demo/tree/master/demo-zustand) - zustand 状态管理
-
+### 4、其他
+- [demo-react-three-drei](https://github.com/chuxin-cs/react-demo/tree/master/demo-react-three-drei) - @react-three/drei 是在react中使用three.js的库
 
 
 ## Git 贡献提交规范
