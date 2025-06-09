@@ -15,11 +15,13 @@ git clone https://github.com/chuxin-cs/react-demo.git
 ### 1、基础
 - [demo-api](https://github.com/chuxin-cs/react-demo/tree/master/demo-api) - react api 学习
 ### 2、项目沉淀
+- [demo-style](https://github.com/chuxin-cs/react-demo/tree/master/demo-style) - React 中样式编写
 - [demo-react-router](https://github.com/chuxin-cs/react-demo/tree/master/demo-react-router) - React Router 路由
 - [demo-locales](https://github.com/chuxin-cs/react-demo/tree/master/demo-locales) - 国际化
 - [demo-auth](https://github.com/chuxin-cs/react-demo/tree/master/demo-auth) - 用户鉴权
 - [demo-components](https://github.com/chuxin-cs/react-demo/tree/master/demo-components) - 业务中常用组件
 - [demo-react-activation](https://github.com/chuxin-cs/react-demo/tree/master/demo-react-activation) - keepalive 组件缓存
+- [demo-motion](https://github.com/chuxin-cs/react-demo/tree/master/demo-motion) - motion 动画
 - [demo-layouts](https://github.com/chuxin-cs/react-demo/tree/master/demo-layouts) - layouts 布局
 ### 3、状态管理
 - [demo-zustand](https://github.com/chuxin-cs/react-demo/tree/master/demo-zustand) - zustand 状态管理
