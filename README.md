@@ -1,11 +1,14 @@
 # react-demo
 > 🍉🍉🍉 用来学习并实战 React 项目等等~
-> react admin 后台管理: https://github.com/chuxin-cs/react-admin
 
 ## ⌨️ Development
 ```bash
 git clone https://github.com/chuxin-cs/react-demo.git
 ```
+
+## ⌨️ Admin
+- react admin 后台管理: https://github.com/chuxin-cs/react-admin
+
 
 ## ✨ 项目列表
 > 🍉🍉🍉 持续更新中...
