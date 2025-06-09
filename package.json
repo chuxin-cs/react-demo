@@ -1,0 +1,12 @@
+{
+  "name": "react-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "🍉🍉🍉 用来学习并实战 React 的项目~",
+  "keywords": [
+    "react",
+    "react-demo"
+  ],
+  "author": "chuxin",
+  "license": "MIT"
+}
