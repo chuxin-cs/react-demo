@@ -13,6 +13,7 @@ function App() {
       </div>
 
       <h1>{t('system.api.title')}</h1>
+      <h2>{t("common.light")}</h2>
     </div>
   );
 }
