@@ -7,8 +7,13 @@ git clone https://github.com/chuxin-cs/react-demo.git
 ```
 
 ## ✨ 项目列表
-- [demo-api](https://github.com/chuxin-cs/react-demo/tree/master/demo-api) react api 学习
+### 1.基础
+- [demo-api](https://github.com/chuxin-cs/react-demo/tree/master/demo-api) - react api 学习
+### 2、项目实践
 - [demo-react-router](https://github.com/chuxin-cs/react-demo/tree/master/demo-react-router) - React Router 路由
+- [demo-locales](https://github.com/chuxin-cs/react-demo/tree/master/demo-locales) - 国际化
+### 3、状态管理
+- [demo-zustand](https://github.com/chuxin-cs/react-demo/tree/master/demo-zustand) - zustand 状态管理
 
 
 
