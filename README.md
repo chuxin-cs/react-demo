@@ -24,6 +24,7 @@ git clone https://github.com/chuxin-cs/react-demo.git
 - [demo-Immer](https://github.com/chuxin-cs/react-demo/tree/master/demo-Immer) - Immer 解决 useState 深拷贝问题
 - [demo-react-activation](https://github.com/chuxin-cs/react-demo/tree/master/demo-react-activation) - keepalive 组件缓存
 - [demo-motion](https://github.com/chuxin-cs/react-demo/tree/master/demo-motion) - motion 动画
+- [demo-theme](https://github.com/chuxin-cs/react-demo/tree/master/demo-motion) - 主题切换
 - [demo-layouts](https://github.com/chuxin-cs/react-demo/tree/master/demo-layouts) - layouts 布局
 ### 3、状态管理
 - [demo-zustand](https://github.com/chuxin-cs/react-demo/tree/master/demo-zustand) - zustand 状态管理
