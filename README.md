@@ -23,7 +23,9 @@ git clone https://github.com/chuxin-cs/react-demo.git
 - [demo-layouts](https://github.com/chuxin-cs/react-demo/tree/master/demo-layouts) - layouts 布局
 ### 3、状态管理
 - [demo-zustand](https://github.com/chuxin-cs/react-demo/tree/master/demo-zustand) - zustand 状态管理
-### 4、其他
+### 4、源码学习
+- [demo-hooks](https://github.com/chuxin-cs/react-demo/tree/master/demo-hooks) - 学习 ahooks 源码
+### 5、其他
 - [demo-react-three-drei](https://github.com/chuxin-cs/react-demo/tree/master/demo-react-three-drei) - @react-three/drei 是在react中使用three.js的库
 
 
