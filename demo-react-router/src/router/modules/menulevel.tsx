@@ -17,7 +17,6 @@ export const MenulevelConfig = {
     },
     {
       path: 'menu_level_1b',
-      element: <div>lervel 1b</div>,
       children: [
         {
           index: true,

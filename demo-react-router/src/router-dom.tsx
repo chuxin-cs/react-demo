@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router';
 
 // 使用动态导入实现懒加载
 const Home = lazy(() => import('./pages/home'));
-const Login = lazy(() => import('./pages/login'));
+const Login = lazy(() => import('./pages/sys/login'));
 
 export default function RouterDomDemo() {
   return (
