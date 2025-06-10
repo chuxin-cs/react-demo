@@ -1,23 +1,27 @@
 import React from 'react';
 import { RouterProvider } from 'react-router/dom';
-import { Navigate, createHashRouter, Outlet } from 'react-router';
+import { Navigate, createHashRouter } from 'react-router';
+
+// components
+import DashboardLayout from '@/layouts';
+import ProtectedRoute from './components/ProtectedRoute';
 
 // config
 import { MenulevelConfig } from './modules/menulevel';
 import { PUBLIC_ROUTE, ERROR_ROUTE, NO_MATCHED_ROUTE } from './sys';
 
 export const Router: React.RC = () => {
-  //
+  // 受保护的路由(业务路由)
   const PROTECTED_ROUTE = {
     path: '/',
     element: (
-      <>
-        <Outlet />
-      </>
+      <ProtectedRoute>
+        <DashboardLayout />
+      </ProtectedRoute>
     ),
     children: [
       // 默认的重定向
-      { index: true, element: <Navigate to={'/menu_level/menu_level_1a'} replace /> },
+      { index: true, element: <Navigate to={'/403'} replace /> },
       // 业务模块
       MenulevelConfig,
     ],

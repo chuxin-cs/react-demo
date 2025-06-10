@@ -1,6 +1,10 @@
 import { Suspense } from 'react';
 import { Outlet, Navigate } from 'react-router';
 
+function LevelPage({ children }){
+  return <div>{ abc }{ children }</div>
+}
+
 export const MenulevelConfig = {
   order: 2,
   path: 'menu_level',
@@ -13,7 +17,7 @@ export const MenulevelConfig = {
   children: [
     {
       path: 'menu_level_1a',
-      element: <div>lervel 1a</div>,
+      element: <LevelPage>lervel 1a</LevelPage>,
     },
     {
       path: 'menu_level_1b',
@@ -24,11 +28,11 @@ export const MenulevelConfig = {
         },
         {
           path: 'menu_level_2a',
-          element: <div>lervel 2</div>,
+          element: <LevelPage>lervel 2</LevelPage>,
         },
         {
           path: 'menu_level_2b',
-          element: <div>lervel 2</div>,
+          element: <LevelPage>lervel 2</LevelPage>,
         },
       ],
     },
