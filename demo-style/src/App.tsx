@@ -17,21 +17,30 @@ interface StyleButtonProps1 {
   bg?: boolean;
 }
 const StyleButtonWithConfig = styled.button.withConfig({
-  shouldForwardProp: (prop) => !['bg'].includes(prop) // 过滤 bg 属性
+  shouldForwardProp: (prop) => !['bg'].includes(prop), // 过滤 bg 属性
 })<StyleButtonProps1>`
-color: #fff;
-border: 0;
-background: ${(props) => (props.bg ? "#000" : "#666")};
-`
+  color: #fff;
+  border: 0;
+  background: ${(props) => (props.bg ? '#000' : '#666')};
+`;
+
+import { containerStyle, buttonStyle } from './styles.css.ts';
 
 function App() {
   return (
     <div>
       <div className={'css_style'}>1</div>
       <div className={globalStyle.flex}>2</div>
+      
+      {/* styled-components */}
       {/* 这里直接绑定 bg 会被渲染到 button dom 上 但是button没有这个属性 react会抛出警告 Warning: Received `true` for a non-boolean attribute `bg` */}
       <StyleButton $bg={true}>3</StyleButton>
       <StyleButtonWithConfig bg={true}>4</StyleButtonWithConfig>
+
+      {/* @vanilla-extract */}
+      <div className={containerStyle}>
+        <button className={buttonStyle}>点击我</button>
+      </div>
     </div>
   );
 }
