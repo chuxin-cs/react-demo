@@ -17,8 +17,9 @@ git clone https://github.com/chuxin-cs/react-demo.git
 - [demo-api](https://github.com/chuxin-cs/react-demo/tree/master/demo-api) - react api 学习
 ### 2、项目沉淀
 - [demo-style](https://github.com/chuxin-cs/react-demo/tree/master/demo-style) - React 中样式编写
-- [demo-react-router](https://github.com/chuxin-cs/react-demo/tree/master/demo-react-router) - React Router 路由
 - [demo-locales](https://github.com/chuxin-cs/react-demo/tree/master/demo-locales) - 国际化
+
+- [demo-react-router](https://github.com/chuxin-cs/react-demo/tree/master/demo-react-router) - React Router 路由
 - [demo-auth](https://github.com/chuxin-cs/react-demo/tree/master/demo-auth) - 用户鉴权
 - [demo-components](https://github.com/chuxin-cs/react-demo/tree/master/demo-components) - 业务中常用组件
 - [demo-Immer](https://github.com/chuxin-cs/react-demo/tree/master/demo-Immer) - Immer 解决 useState 深拷贝问题
