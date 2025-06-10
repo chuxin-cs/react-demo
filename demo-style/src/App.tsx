@@ -26,7 +26,17 @@ const StyleButtonWithConfig = styled.button.withConfig({
 
 import { containerStyle, buttonStyle } from './styles.css.ts';
 
+
+import clsx from "clsx";
+
 function App() {
+
+  const mergeClassName = clsx({
+    btn: true,
+    'btn-active': true,
+    'btn-error': true
+  })
+
   return (
     <div>
       <div className={'css_style'}>1</div>
@@ -41,6 +51,9 @@ function App() {
       <div className={containerStyle}>
         <button className={buttonStyle}>点击我</button>
       </div>
+
+      {/* clsx */}
+      <div className={ mergeClassName }>5</div>
     </div>
   );
 }
