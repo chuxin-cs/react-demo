@@ -28,6 +28,8 @@ import { containerStyle, buttonStyle } from './styles.css.ts';
 
 import clsx from 'clsx';
 
+import classNames from 'classnames';
+
 function App() {
   const mergeClassName = clsx({
     btn: true,
@@ -41,6 +43,12 @@ function App() {
     [globalStyle.flex]: true,
   });
 
+  // classNames
+  const names = classNames('foo', 'bar'); // => 'foo bar'
+  // 动态
+  const key = 'classKey';
+  const names1 = classNames({ [key]: true }); // => 'foo'
+  const names2 = classNames(names1,names)
   return (
     <div>
       <div className={'css_style'}>1</div>
@@ -59,6 +67,9 @@ function App() {
       {/* clsx */}
       <div className={mergeClassName}>5</div>
       <div className={mergeClassNameModule}>6</div>
+
+      {/* classnames */}
+      <div className={names2}>7</div>
     </div>
   );
 }
