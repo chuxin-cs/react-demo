@@ -1,15 +1,11 @@
-import { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router';
+import RouterDomDemo from './router-dom';
 
 export default function App() {
   return (
-    <Router>
-      <Suspense fallback={<div>loading...</div>}>
-        <Routes>
-          <Route path='/' element={<div>home</div>} />
-          <Route path='/about' element={<div>about</div>} />
-        </Routes>
-      </Suspense>
-    </Router>
+    <>
+      <h1>React Router</h1>
+      {/* DOM 方式 */}
+      <RouterDomDemo />
+    </>
   );
 }
