@@ -1,16 +1,21 @@
 import { Outlet } from 'react-router';
+import { Layout, Card } from 'antd';
 
-export const Layouts = () => {
+// v1 版本
+import MenuLayout from './v1';
+
+const { Sider, Content } = Layout;
+export default function Layouts() {
   return (
-    <div>
-      {/* 左侧菜单栏 */}
-      <div></div>
-      {/* 右侧主体内容 */}
-      <div>
-        <Outlet />
-      </div>
-    </div>
+    <Layout style={{ minHeight: '100vh' }}>
+      <Sider width={256} theme='dark'>
+        <MenuLayout />
+      </Sider>
+      <Content>
+        <Card>
+          <Outlet />
+        </Card>
+      </Content>
+    </Layout>
   );
-};
-
-export default Layouts;
+}
