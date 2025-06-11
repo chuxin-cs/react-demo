@@ -1,7 +1,10 @@
+// 只侧重学习 menu 菜单组件
+import Layouts from './layouts';
+
 function App() {
   return (
     <>
-      <h1>demo-menu</h1>
+      <Layouts />
     </>
   );
 }
