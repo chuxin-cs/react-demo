@@ -2,9 +2,9 @@ import { RouterProvider } from 'react-router/dom';
 import { createBrowserRouter, Navigate } from 'react-router';
 // components
 import Layouts from '@/layouts';
-import Login from '@/pages/login';
 // config
-import { routesConfig } from './routes';
+import { publicConfig } from './routes/public';
+import { dashboardConfig } from './routes/dashboard';
 
 const Router = () => {
   const routes = [
@@ -13,16 +13,13 @@ const Router = () => {
       element: <Layouts></Layouts>,
       children: [
         { index: true, element: <Navigate to='dashboard/home' replace /> },
-        ...routesConfig,
+        ...dashboardConfig,
       ],
     },
   ];
   const router = createBrowserRouter([
     ...routes,
-    {
-      path: '/login',
-      element: <Login />,
-    },
+    ...publicConfig,
     {
       path: '*',
       element: <Navigate to='/login' replace />,

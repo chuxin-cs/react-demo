@@ -2,7 +2,7 @@
 import Home from '@/pages/home';
 import About from '@/pages/about';
 
-export const routesConfig = [
+export const dashboardConfig = [
   {
     order: 1,
     path: 'dashboard',
@@ -34,4 +34,4 @@ export const routesConfig = [
   },
 ];
 
-export default routesConfig;
+export default dashboardConfig;

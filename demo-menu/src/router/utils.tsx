@@ -15,7 +15,7 @@ export const menuFilter = (list) => {
  */
 export function getRoutesFromModules() {
   const menuModules = [];
-  const modules = import.meta.glob('./routes.tsx', { eager: true });
+  const modules = import.meta.glob('./routes/**/*.tsx', { eager: true });
   for (const key in modules) {
     const mod = (modules as any)[key].default || {};
     const modList = Array.isArray(mod) ? [...mod] : [mod];
