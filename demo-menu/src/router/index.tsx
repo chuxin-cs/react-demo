@@ -1,11 +1,33 @@
 import { RouterProvider } from 'react-router/dom';
-import { createBrowserRouter } from 'react-router';
-
+import { createBrowserRouter, Navigate } from 'react-router';
+// components
+import Layouts from '@/layouts';
+import Login from '@/pages/login';
 // config
-import { routes } from './routes';
+import { routesConfig } from './routes';
 
 const Router = () => {
-  const router = createBrowserRouter(routes);
+  const routes = [
+    {
+      path: '/',
+      element: <Layouts></Layouts>,
+      children: [
+        { index: true, element: <Navigate to='home' replace /> },
+        ...routesConfig,
+      ],
+    },
+  ];
+  const router = createBrowserRouter([
+    ...routes,
+    {
+      path: '/login',
+      element: <Login />,
+    },
+    {
+      path: '*',
+      element: <Navigate to='/login' replace />,
+    },
+  ]);
   return <RouterProvider router={router} />;
 };
 
