@@ -1,11 +1,12 @@
+import { useCallback } from 'react';
+
 export const menuFilter = (list) => {
   return list.filter((item) => {
     const key = item.meta?.key;
     if ((key && item.children) || item.children?.length) {
       item.children = menuFilter(item.children);
     }
-    console.log(key,"111")
-    return 123;
+    return key;
   });
 };
 
@@ -21,4 +22,23 @@ export function getRoutesFromModules() {
     menuModules.push(...modList);
   }
   return menuModules;
+}
+
+export function useRouteToMenuFn() {
+  const routeToMenuFn = useCallback((items) => {
+    return items.map((item) => {
+      const { meta, children } = item;
+      // 如果没有meta，直接返回空对象
+      if (!meta) return {};
+      const menuItem = {
+        key: meta.key, // antd menu 需要的 key
+        disabled: meta.disabled,
+        label: meta.label, // antd menu 需要的 label
+        icon: meta.icon,
+        ...(children && { children: routeToMenuFn(children) }),
+      };
+      return menuItem;
+    });
+  }, []);
+  return routeToMenuFn;
 }

@@ -12,7 +12,7 @@ const Router = () => {
       path: '/',
       element: <Layouts></Layouts>,
       children: [
-        { index: true, element: <Navigate to='home' replace /> },
+        { index: true, element: <Navigate to='dashboard/home' replace /> },
         ...routesConfig,
       ],
     },

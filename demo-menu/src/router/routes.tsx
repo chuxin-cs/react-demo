@@ -4,22 +4,33 @@ import About from '@/pages/about';
 
 export const routesConfig = [
   {
-    path: 'home',
-    element: <Home />,
+    order: 1,
+    path: 'dashboard',
     meta: {
-      label: '首页',
-      key: '/home',
+      label: 'V2 版本',
+      key: '/dashboard',
       icon: 'AppstoreOutlined',
     },
-  },
-  {
-    path: 'about',
-    element: <About />,
-    meta: {
-      label: '首页',
-      key: '/about',
-      icon: 'AppstoreOutlined',
-    },
+    children: [
+      {
+        path: 'home',
+        element: <Home />,
+        meta: {
+          label: '首页',
+          key: '/dashboard/home',
+          icon: 'AppstoreOutlined',
+        },
+      },
+      {
+        path: 'about',
+        element: <About />,
+        meta: {
+          label: '关于',
+          key: '/dashboard/about',
+          icon: 'AppstoreOutlined',
+        },
+      },
+    ],
   },
 ];
 
