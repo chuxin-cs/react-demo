@@ -1,12 +1,7 @@
-// 只侧重学习 menu 菜单组件
-import Layouts from './layouts';
+import Router from './router';
 
 function App() {
-  return (
-    <>
-      <Layouts />
-    </>
-  );
+  return <Router />;
 }
 
 export default App;
