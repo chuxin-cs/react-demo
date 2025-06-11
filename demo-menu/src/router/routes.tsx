@@ -11,6 +11,7 @@ export const routes = [
     path: '/',
     element: <Layouts></Layouts>,
     children: [
+      { index: true, element: <Navigate to='home' replace /> },
       {
         path: 'home',
         element: <Home />,
