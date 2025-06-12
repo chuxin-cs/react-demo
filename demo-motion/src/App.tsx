@@ -6,21 +6,17 @@ function Rotate() {
   return (
     <motion.div
       className={'box'}
-      animate={{ rotate: 360 }}
-      transition={{ duration: 5 }}
+      initial={{ scale: 0 }}
+      animate={{ rotate: 360, scale: 1 }}
+      transition={{ duration: 1 }}
     />
   );
 }
 
-function App() {
+export default function App() {
   return (
     <>
-      <h1>react motion</h1>
-
-      {/* 360度旋转 */}
       <Rotate />
     </>
   );
 }
-
-export default App;
