@@ -1,9 +1,10 @@
-import { baseStore } from './store/baseStore';
+// import { baseStore } from './store/baseStore';
+import { middlewareStore } from './store/persistMiddlewareStore';
 
 function App() {
-  const count = baseStore((state) => state.count);
-  const inc = baseStore((state) => state.inc);
-  const dec = baseStore((state) => state.dec);
+  const { count } = middlewareStore();
+  const inc = middlewareStore((state) => state.inc);
+  const dec = middlewareStore((state) => state.dec);
 
   return (
     <>
