@@ -1,5 +1,6 @@
 // import { baseStore } from './store/baseStore';
-import { middlewareStore } from './store/persistMiddlewareStore';
+// import { middlewareStore } from './store/persistMiddlewareStore';
+import { middlewareStore } from './store/devtoolsMiddlewareStore';
 
 function App() {
   const { count } = middlewareStore();
