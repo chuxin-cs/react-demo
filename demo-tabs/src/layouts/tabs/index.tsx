@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export default function MultiTabs() {
   return (
-    <>
+    <StyledMultiTabs>
       <h1>tabs</h1>
-    </>
+    </StyledMultiTabs>
   );
 }
 

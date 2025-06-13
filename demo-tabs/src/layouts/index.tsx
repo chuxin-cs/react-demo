@@ -1,6 +1,7 @@
 import { Layout } from 'antd';
 import { Outlet, NavLink } from 'react-router';
 import MultiTabs from './tabs';
+import MultiTabsProvider from './tabs/providers/MultiTabsProvider';
 
 const { Content, Sider } = Layout;
 export default function Layouts() {
@@ -21,9 +22,9 @@ export default function Layouts() {
         </button>
       </Sider>
       <Content>
-        {/* tabs */}
-        <MultiTabs />
-        {/* 主体内容 */}
+        <MultiTabsProvider>
+          <MultiTabs />
+        </MultiTabsProvider>
         <Outlet></Outlet>
       </Content>
     </Layout>
