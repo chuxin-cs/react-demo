@@ -40,8 +40,11 @@ function Gestures() {
   return (
     <motion.div
       className='box'
+      // 鼠标悬停状态：元素放大到原始尺寸的120%
       whileHover={{ scale: 1.2 }}
+      // 鼠标点击/触摸状态：元素缩小到原始尺寸的80%
       whileTap={{ scale: 0.8 }}
+      // 悬停开始事件：当鼠标进入元素区域时触发日志输出
       onHoverStart={() => console.log('hover started!')}
     ></motion.div>
   );
