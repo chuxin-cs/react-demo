@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 export default function MultiTabs() {
-  
+  return (
+    <>
+      <h1>tabs</h1>
+    </>
+  );
 }
 
 const StyledMultiTabs = styled.div`
