@@ -1,5 +1,11 @@
+import Router from '@/router';
+
 function App() {
-  return <>1</>;
+  return (
+    <>
+      <Router />
+    </>
+  );
 }
 
 export default App;
