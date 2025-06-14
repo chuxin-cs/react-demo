@@ -6,7 +6,7 @@ const { Sider, Content } = Layout;
 export default function Layouts() {
   return (
     <Layout>
-      <Sider>
+      <Sider style={{ width: 256 }}>
         <Menu />
       </Sider>
       <Content>

@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import { Menu, type MenuProps } from 'antd';
 import { AppstoreOutlined } from '@ant-design/icons';
-import routerConfig from '@/router/routes';
+import { routesConfig } from '@/router/routes';
 
 export const MenuLayout: React.RC = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ export const MenuLayout: React.RC = () => {
       defaultSelectedKeys={['1']}
       defaultOpenKeys={['1']}
       mode='inline'
-      items={routerConfig}
+      items={routesConfig}
     />
   );
 };
