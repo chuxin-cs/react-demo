@@ -3,11 +3,19 @@ import UseMountPage from '@/pages/useMount';
 
 export const routesConfig = [
   {
-    path: '/useTitle',
+    ...getKeyAndLabel('/useTitle'),
     element: <UseTitlePage />,
   },
   {
-    path: '/useMount',
+    ...getKeyAndLabel('/useMount'),
     element: <UseMountPage />,
   },
 ];
+
+function getKeyAndLabel(value) {
+  return {
+    path: value,
+    key: value,
+    label: value,
+  };
+}
