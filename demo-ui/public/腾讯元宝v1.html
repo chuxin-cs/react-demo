@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECharts数据统计面板</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .info-cards {
+            display: flex;
+            gap: 20px;
+        }
+        .card {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .card-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-main {
+            flex: 1;
+        }
+        .card-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        .card-growth {
+            font-size: 14px;
+            color: #52c41a;
+        }
+        .card-icon {
+            font-size: 32px;
+            color: #ffa500;
+        }
+        .charts-container {
+            display: flex;
+            gap: 20px;
+        }
+        .chart-left {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .chart-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .chart-panel {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        .chart-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .chart {
+            height: 300px;
+        }
+        .table-panel {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            color: #666;
+            font-weight: normal;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .status-processing {
+            color: #1890ff;
+            background: #e6f7ff;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        .status-completed {
+            color: #52c41a;
+            background: #f6ffed;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- 顶部信息卡片 -->
+        <div class="info-cards">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📚</div>
+                    <span>题库总量</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-main">
+                        <div class="card-value">200,000</div>
+                        <div class="card-growth">较上月增长 8%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📊</div>
+                    <span>评分模型</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-main">
+                        <div class="card-value">15</div>
+                        <div class="card-growth">较上月增长 10%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">✅</div>
+                    <span>已完成评测</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-main">
+                        <div class="card-value">1,000</div>
+                        <div class="card-growth">较上周增加 10%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🔴</div>
+                    <span>红队测试</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-main">
+                        <div class="card-value">2,000</div>
+                        <div class="card-growth">较上周增加 10%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 中间图表 -->
+        <div class="charts-container">
+            <!-- 左侧柱状图 -->
+            <div class="chart-left">
+                <div class="chart-panel">
+                    <div class="chart-title">最新完成评测大模型风险统计</div>
+                    <div id="risk-bar-chart" class="chart"></div>
+                </div>
+                
+                <div class="chart-panel">
+                    <div class="chart-title">最近评测大模型</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>模型名称</th>
+                                <th>评测时间</th>
+                                <th>测试题量</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>M1</td>
+                                <td>2025-09-20 10:56:17</td>
+                                <td>1000</td>
+                                <td><span class="status-processing">进行中</span></td>
+                            </tr>
+                            <tr>
+                                <td>M2</td>
+                                <td>2025-09-20 10:56:17</td>
+                                <td>320</td>
+                                <td><span class="status-completed">已完成</span></td>
+                            </tr>
+                            <tr>
+                                <td>M111</td>
+                                <td>2025-09-20 10:56:17</td>
+                                <td>439</td>
+                                <td><span class="status-processing">进行中</span></td>
+                            </tr>
+                            <tr>
+                                <td>M1456</td>
+                                <td>2025-09-20 10:56:17</td>
+                                <td>320</td>
+                                <td><span class="status-processing">进行中</span></td>
+                            </tr>
+                            <tr>
+                                <td>M15678900</td>
+                                <td>2025-09-20 10:56:17</td>
+                                <td>320</td>
+                                <td><span class="status-processing">进行中</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- 右侧图表 -->
+            <div class="chart-right">
+                <!-- 安全风险统计饼图 -->
+                <div class="chart-panel">
+                    <div class="chart-title">安全风险统计</div>
+                    <div id="security-pie-chart" class="chart"></div>
+                </div>
+                
+                <!-- 题库分类统计饼图 -->
+                <div class="chart-panel">
+                    <div class="chart-title">题库分类统计</div>
+                    <div id="question-category-pie-chart" class="chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 大模型风险柱状图数据
+        const riskBarChart = echarts.init(document.getElementById('risk-bar-chart'));
+        const riskBarOption = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { type: 'shadow' }
+            },
+            legend: {
+                data: ['安全', '不安全', '拒答'],
+                right: 10,
+                top: 0
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                top: '15%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                data: ['M1', 'M2', 'M3', 'M4', 'M5']
+            },
+            yAxis: {
+                type: 'value',
+                name: '风险数量',
+                nameTextStyle: {
+                    padding: [0, 0, 0, -40]
+                }
+            },
+            series: [
+                {
+                    name: '安全',
+                    type: 'bar',
+                    stack: 'stack',
+                    emphasis: { focus: 'series' },
+                    data: [1000, 510, 320, 220, 510],
+                    itemStyle: { color: '#1890ff' }
+                },
+                {
+                    name: '不安全',
+                    type: 'bar',
+                    stack: 'stack',
+                    emphasis: { focus: 'series' },
+                    data: [510, 320, 220, 510, 220],
+                    itemStyle: { color: '#faad14' }
+                },
+                {
+                    name: '拒答',
+                    type: 'bar',
+                    stack: 'stack',
+                    emphasis: { focus: 'series' },
+                    data: [220, 510, 320, 220, 510],
+                    itemStyle: { color: '#ff4d4f' }
+                }
+            ]
+        };
+        riskBarChart.setOption(riskBarOption);
+        
+        // 安全风险统计饼图
+        const securityPieChart = echarts.init(document.getElementById('security-pie-chart'));
+        const securityPieOption = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                right: 10,
+                top: 'center',
+                formatter: function(name) {
+                    const data = securityPieOption.series[0].data;
+                    const item = data.find(item => item.name === name);
+                    return `${name}: ${item.value} (${item.percentage}%)`;
+                }
+            },
+            color: ['#1890ff', '#52c41a', '#faad14', '#ff4d4f'],
+            series: [
+                {
+                    name: '安全风险统计',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    center: ['35%', '50%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '16',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        { value: 1000, name: '商业合法合规', percentage: '36%' },
+                        { value: 320, name: '个人权益', percentage: '36%' },
+                        { value: 439, name: '社会主要核心价值观', percentage: '36%' },
+                        { value: 320, name: '其他', percentage: '5%' }
+                    ]
+                }
+            ]
+        };
+        securityPieChart.setOption(securityPieOption);
+        
+        // 题库分类统计饼图
+        const categoryPieChart = echarts.init(document.getElementById('question-category-pie-chart'));
+        const categoryPieOption = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {d}%'
+            },
+            legend: {
+                orient: 'vertical',
+                right: 10,
+                top: 'center',
+                formatter: function(name) {
+                    const data = categoryPieOption.series[0].data;
+                    const item = data.find(item => item.name === name);
+                    return `${name}: ${item.percentage}`;
+                }
+            },
+            color: ['#1890ff', '#52c41a', '#faad14', '#722ed1'],
+            series: [
+                {
+                    name: '题库分类统计',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    center: ['35%', '50%'],
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '16',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        { value: 10, name: '个人权益', percentage: '10%' },
+                        { value: 30, name: '商业合法权益', percentage: '30%' },
+                        { value: 30, name: '社会主要核心价值观', percentage: '30%' },
+                        { value: 5, name: '其他', percentage: '5%' }
+                    ]
+                }
+            ]
+        };
+        categoryPieChart.setOption(categoryPieOption);
+        
+        // 窗口大小改变时重置图表
+        window.addEventListener('resize', function() {
+            riskBarChart.resize();
+            securityPieChart.resize();
+            categoryPieChart.resize();
+        });
+    </script>
+</body>
+</html>
